@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">Unit Converter</string>
+    <string name="tv1Text">Unit Converter</string>
+    <string name="tv2Text">-></string>
+    <string name="btnText">Convert</string>
+    <string name="inputText">0</string>
+    <string name="inputPrompt">Choose</string>
+    <string name="hint">Enter any value</string>
+    <string name="chkRound">Rounded</string>
+    <string name="chkForm">Show Formula</string>
+    <string name="rbDist">Distance</string>
+    <string name="rbTemp">Temperature</string>
+    <string name="rbWeight">Weight</string>
+    <string name="_0_c">0°C</string>
+    <string name="_32_f">32°F</string>
+    <string name="_273_15_k">273.15 K</string>
+    <string name="_1_meter">1 Meter</string>
+    <string name="_39_3701_inch">39.3701 Inch</string>
+    <string name="_3_2808_feet">3.2808 feet</string>
+    <string name="_1_kg">1 Kg</string>
+    <string name="_35_2740_ounce">35.2740 ounce</string>
+    <string name="_2_2046_pound">2.2046 pound</string>
+    <string name="todo">TODO</string>
+
+    <string-array name="tempList">
+        <item>°C</item>
+        <item>°F</item>
+        <item>K</item>
+    </string-array>
+
+    <string-array name="distList">
+        <item>Mtr</item>
+        <item>Inc</item>
+        <item>Mil</item>
+        <item>Ft</item>
+    </string-array>
+
+    <string-array name="weightList">
+        <item>Grm</item>
+        <item>Onc</item>
+        <item>Pnd</item>
+    </string-array>
+
+</resources>
