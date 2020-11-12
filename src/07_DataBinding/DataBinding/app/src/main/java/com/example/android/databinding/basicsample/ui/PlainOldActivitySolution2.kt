@@ -42,27 +42,27 @@ class PlainOldActivitySolution2 : AppCompatActivity() {
     // Obtain ViewModel from ViewModelProviders
     private val viewModel by lazy { ViewModelProviders.of(this).get(SimpleViewModel::class.java) }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        val binding: PlainActivitySolution2Binding =
-            DataBindingUtil.setContentView(this, R.layout.plain_activity_solution_2)
-
-        binding.name = "Ada"
-        binding.lastName = "Lovelace"
-
-        // TODO: Explicitly setting initial values is a bad pattern. We'll fix that later on.
-        updateLikes()
-    }
-
-    /**
-     * This method is triggered by the `android:onclick` attribute in the layout. It puts business
-     * logic in the activity, which is not ideal. We should do something about that.
-     */
-    fun onLike(view: View) {
-        viewModel.onLike()
-        updateLikes()
-    }
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
+//
+//        val binding: PlainActivitySolution2Binding =
+//            DataBindingUtil.setContentView(this, R.layout.plain_activity_solution_2)
+//
+//        binding.name = "Ferry"
+//        binding.lastName = "Julyo"
+//
+//        // TODO: Explicitly setting initial values is a bad pattern. We'll fix that later on.
+//        updateLikes()
+//    }
+//
+//    /**
+//     * This method is triggered by the `android:onclick` attribute in the layout. It puts business
+//     * logic in the activity, which is not ideal. We should do something about that.
+//     */
+//    fun onLike(view: View) {
+//        viewModel.onLike()
+//        updateLikes()
+//    }
 
     /**
      * This method has many problems:
@@ -70,18 +70,18 @@ class PlainOldActivitySolution2 : AppCompatActivity() {
      * - It has untestable logic
      * - It's updating two views when called even if they're not changing
      */
-    private fun updateLikes() {
-        findViewById<TextView>(R.id.likes).text = viewModel.likes.toString()
-        findViewById<ProgressBar>(R.id.progressBar).progress =
-            (viewModel.likes * 100 / 5).coerceAtMost(100)
-        val image = findViewById<ImageView>(R.id.imageView)
-
-        val color = getAssociatedColor(viewModel.popularity, this)
-
-        ImageViewCompat.setImageTintList(image, ColorStateList.valueOf(color))
-
-        image.setImageDrawable(getDrawablePopularity(viewModel.popularity, this))
-    }
+//    private fun updateLikes() {
+//        findViewById<TextView>(R.id.likes).text = viewModel.likes.toString()
+//        findViewById<ProgressBar>(R.id.progressBar).progress =
+//            (viewModel.likes * 100 / 5).coerceAtMost(100)
+//        val image = findViewById<ImageView>(R.id.imageView)
+//
+//        val color = getAssociatedColor(viewModel.popularity, this)
+//
+//        ImageViewCompat.setImageTintList(image, ColorStateList.valueOf(color))
+//
+//        image.setImageDrawable(getDrawablePopularity(viewModel.popularity, this))
+//    }
 
     private fun getAssociatedColor(popularity: Popularity, context: Context): Int {
         return when (popularity) {

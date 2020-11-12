@@ -20,14 +20,18 @@ import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.drawable.Drawable
 import android.os.Build
+import android.os.Build.VERSION
+import android.os.Build.VERSION_CODES
 import android.view.View
 import android.widget.ImageView
 import android.widget.ProgressBar
+import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.core.widget.ImageViewCompat
 import androidx.databinding.BindingAdapter
 import com.example.android.databinding.basicsample.R
 import com.example.android.databinding.basicsample.data.Popularity
+
 
 /**
  * A Binding Adapter that is called whenever the value of the attribute `app:popularityIcon`
@@ -98,5 +102,20 @@ private fun getDrawablePopularity(popularity: Popularity, context: Context): Dra
         Popularity.STAR -> {
             ContextCompat.getDrawable(context, R.drawable.ic_whatshot_black_96dp)
         }
+    }
+}
+
+@BindingAdapter("android:text")
+fun setText(view: TextView, text: CharSequence?) {
+    // Some checks removed for clarity
+    view.text = text
+}
+
+@BindingAdapter("android:background")
+fun setBackground(view: View, drawable: Drawable?) {
+    if (VERSION.SDK_INT >= VERSION_CODES.JELLY_BEAN) {
+        view.background = drawable
+    } else {
+        view.setBackgroundDrawable(drawable)
     }
 }
