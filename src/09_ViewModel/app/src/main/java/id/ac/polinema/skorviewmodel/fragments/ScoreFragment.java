@@ -36,11 +36,13 @@ public class ScoreFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 							 Bundle savedInstanceState) {
+		viewModel = new ViewModelProvider(requireActivity()).get(ScoreViewModel.class);
 		FragmentScoreBinding binding = DataBindingUtil
 			.inflate(inflater, R.layout.fragment_score, container, false);
 		// instance viewmodel here
 		return binding.getRoot();
 	}
+
 
 
 }
