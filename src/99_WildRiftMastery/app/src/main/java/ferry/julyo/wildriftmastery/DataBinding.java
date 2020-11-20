@@ -1,63 +1,53 @@
 package ferry.julyo.wildriftmastery;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageButton;
+public class DataBinding {
+    private String studentName;
+    private String studentNim;
+    private String studentMatkul;
+    private String studentAkun;
 
-import androidx.databinding.DataBindingUtil;
-import ferry.julyo.wildriftmastery.ActivityMainBinding;
-
-
-
-public class DataBinding extends Activity {
-    private ImageButton btnChampion, btnItem, btnVoice, btnWallpaper;
-
-    private ActivityMainBinding activityMainBinding;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        btnChampion = (ImageButton) findViewById(R.id.btnCham);
-        btnItem = (ImageButton) findViewById(R.id.btnItem);
-        btnVoice = (ImageButton) findViewById(R.id.btnVoice);
-        btnWallpaper = (ImageButton) findViewById(R.id.btnWall);
-
-        About.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AboutFragment();
-            }
-        });
-
-
-
-        activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-        activityMainBinding.setChampion(getCurrentTitle());
-        activityMainBinding.setItem(getCurrentTitle());
-        activityMainBinding.setVoice(getCurrentTitle());
+    public DataBinding(String studentName, String studentMatkul, String studentAkun, String studentNim){
+        this.studentName = studentName;
+        this.studentNim = studentNim;
+        this.studentMatkul = studentMatkul;
+        this.studentAkun = studentAkun;
     }
 
-    public void AboutFragment(){
-        Intent intent = new Intent(this, AboutFragment.class);
-        startActivity(intent);
+    public DataBinding(){
+
     }
 
-    private Title getCurrentTitle(){
-        Title title = new Title();
-        title.setBtnChampName("Champion");
-        title.setBtnItemName("Item");
-        title.setBtnVoiceName("Voice");
-        title.setBtnWallName("Wallpapers");
-        return title;
+    public String getStudentName() {
+
+        return studentName;
     }
 
-    @Override
-    public void onPointerCaptureChanged(boolean hasCapture) {
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
+    }
 
+    public String getStudentNim() {
+        return studentNim;
+    }
+
+    public void setStudentNim(String studentNim) {
+        this.studentNim = studentNim;
+    }
+
+    public String getStudentAkun() {
+
+        return studentAkun;
+    }
+
+    public void setStudentAkun(String studentAkun){
+        this.studentAkun = studentAkun;
+    }
+
+    public String getStudentMatkul(){
+        return studentMatkul;
+    }
+
+    public void setStudentMatkul(String studentMatkul){
+        this.studentMatkul = studentMatkul;
     }
 }
-

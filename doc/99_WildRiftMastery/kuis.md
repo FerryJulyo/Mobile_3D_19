@@ -5,7 +5,7 @@
 
 
 
-### Task : 1
+### Splash Screen
 
 1. .<br>
    
@@ -13,7 +13,23 @@
 
 
 <br><br>
-### Masih Error :(  
+### Navigation and Data Binding
+
+1. .<br>
+   
+   ![contoh screenshot](2.png)<br>
+
+   ![contoh screenshot](4.png)<br>
+
+
+
+<br><br>
+### Without Data Binding
+
+1. .<br>
+   
+   ![contoh screenshot](3.png)<br>
+
 
 
 
