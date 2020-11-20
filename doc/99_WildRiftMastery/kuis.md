@@ -1,7 +1,7 @@
-# Laporan Kuis #2
+# Laporan Kuis # 2
 
 
-![Logo Polinema](img/polinema.png)<br>
+![Logo Polinema](polinema.png)<br>
 
 
 
