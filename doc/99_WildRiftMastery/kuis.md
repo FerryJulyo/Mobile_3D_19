@@ -9,25 +9,12 @@
 
 1. .<br>
    
-   ![contoh screenshot](img/Step1/1.png)<br>
+   ![contoh screenshot](1.png)<br>
 
-2. .
 
-   ![contoh screenshot](img/Step1/2.png)<br>
+<br><br>
+### Masih Error :(  
 
-3. .  
-
-   ![contoh screenshot](img/Step1/3.png)<br>
-
-   ![contoh screenshot](img/Step1/4.png)<br>
-
-   ![contoh screenshot](img/Step1/5.png)<br>
-
-   ![contoh screenshot](img/Step1/6.png)<br>
-
-   ![contoh screenshot](img/Step1/7.png)<br>
-
-   ![contoh screenshot](img/Tantangan/1.png)<br>
 
 
 				

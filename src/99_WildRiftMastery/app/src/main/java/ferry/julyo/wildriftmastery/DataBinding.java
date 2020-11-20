@@ -1,16 +1,15 @@
 package ferry.julyo.wildriftmastery;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-import androidx.fragment.app.Fragment;
-
 import android.app.Activity;
-import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
+
+import androidx.databinding.DataBindingUtil;
+import ferry.julyo.wildriftmastery.ActivityMainBinding;
+
+
 
 public class DataBinding extends Activity {
     private ImageButton btnChampion, btnItem, btnVoice, btnWallpaper;
@@ -25,7 +24,7 @@ public class DataBinding extends Activity {
         btnChampion = (ImageButton) findViewById(R.id.btnCham);
         btnItem = (ImageButton) findViewById(R.id.btnItem);
         btnVoice = (ImageButton) findViewById(R.id.btnVoice);
-        btnWallpaper = (ImageButton)
+        btnWallpaper = (ImageButton) findViewById(R.id.btnWall);
 
         About.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,9 +36,9 @@ public class DataBinding extends Activity {
 
 
         activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-        activityMainBinding.setHero(getCurrentTitle());
-        activityMainBinding.setTipe(getCurrentTitle());
-        activityMainBinding.setRole(getCurrentTitle());
+        activityMainBinding.setChampion(getCurrentTitle());
+        activityMainBinding.setItem(getCurrentTitle());
+        activityMainBinding.setVoice(getCurrentTitle());
     }
 
     public void AboutFragment(){
@@ -49,9 +48,10 @@ public class DataBinding extends Activity {
 
     private Title getCurrentTitle(){
         Title title = new Title();
-        title.setBtnHeroName("Hero");
-        title.setBtnTipeName("Tipe");
-        title.setBtnRoleName("Role");
+        title.setBtnChampName("Champion");
+        title.setBtnItemName("Item");
+        title.setBtnVoiceName("Voice");
+        title.setBtnWallName("Wallpapers");
         return title;
     }
 
@@ -60,3 +60,4 @@ public class DataBinding extends Activity {
 
     }
 }
+

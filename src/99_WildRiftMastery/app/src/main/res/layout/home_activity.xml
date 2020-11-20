@@ -2,7 +2,7 @@
 <layout>
     <data>
         <variable
-            name="DataBinding"
+            name="dataBinding"
             type="ferry.julyo.wildriftmastery.DataBinding" />
     </data>
 
