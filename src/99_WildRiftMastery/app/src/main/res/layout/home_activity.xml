@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="DataBinding"
+            type="ferry.julyo.wildriftmastery.DataBinding" />
+    </data>
+
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -32,132 +39,257 @@
                 app:srcCompat="@drawable/logo" />
 
         </LinearLayout>
-
         <LinearLayout
-            android:id="@+id/champion"
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:layout_below="@id/header"
             android:layout_marginTop="7dp"
             android:background="@color/panelAbu"
-            android:clickable="true"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:id="@+id/champion"
+            >
 
-            <ImageView
-                android:id="@+id/championImage"
-                android:layout_width="150dp"
+            <ImageButton
+                android:id="@+id/btnCham"
+                android:layout_width="117dp"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/hero" />
-
+                android:layout_gravity="left"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="50dp"
+                android:backgroundTint="#00FFFFFF"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/hero"></ImageButton>
             <TextView
-                android:id="@+id/textChamp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
                 android:text="Champion"
+                android:layout_gravity="center"
+                android:textSize="33dp"
                 android:textColor="@color/text"
-                android:textSize="40dp" />
+                ></TextView>
 
         </LinearLayout>
 
+
         <LinearLayout
-            android:id="@+id/item"
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:layout_below="@id/champion"
-            android:layout_marginTop="23dp"
+            android:layout_marginTop="7dp"
             android:background="@color/panelAbu"
-            android:clickable="true"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:id="@+id/item"
+            >
 
-            <ImageView
-                android:id="@+id/itemImage"
-                android:layout_width="150dp"
+            <ImageButton
+                android:id="@+id/btnItem"
+                android:layout_width="117dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="5dp"
                 android:layout_marginRight="50dp"
-                app:srcCompat="@drawable/item" />
-
+                android:backgroundTint="#00FFFFFF"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/item"></ImageButton>
             <TextView
-                android:id="@+id/textItem"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
                 android:text="Item"
+                android:layout_gravity="center"
+                android:textSize="33dp"
                 android:textColor="@color/text"
-                android:textSize="40dp"
-                tools:visibility="visible" />
+                ></TextView>
 
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/sound"
             android:layout_width="match_parent"
             android:layout_height="120dp"
-            android:orientation="horizontal"
-            android:background="@color/panelAbu"
             android:layout_below="@id/item"
-            android:layout_marginTop="15dp"
-            android:clickable="true">
+            android:layout_marginTop="7dp"
+            android:background="@color/panelAbu"
+            android:orientation="horizontal"
+            android:id="@+id/voice"
+            >
 
-            <ImageView
-                android:id="@+id/soundImage"
-                android:layout_width="70dp"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="80dp"
+            <ImageButton
+                android:id="@+id/btnVoice"
+                android:layout_width="117dp"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/sound" />
-
+                android:layout_gravity="left"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="50dp"
+                android:backgroundTint="#00FFFFFF"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/sound"></ImageButton>
             <TextView
-                android:id="@+id/textSound"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Voice"
-                android:textSize="40dp"
+                android:layout_gravity="center"
+                android:textSize="33dp"
                 android:textColor="@color/text"
-                android:layout_gravity="center"/>
+                ></TextView>
 
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/wallpaper"
             android:layout_width="match_parent"
             android:layout_height="120dp"
-            android:orientation="horizontal"
+            android:layout_below="@id/voice"
+            android:layout_marginTop="7dp"
             android:background="@color/panelAbu"
-            android:layout_below="@id/sound"
-            android:layout_marginTop="15dp"
-            android:clickable="true">
+            android:orientation="horizontal"
+            android:id="@+id/wallpapers"
+            >
 
-            <ImageView
-                android:id="@+id/wallpaperImage"
-                android:layout_width="100dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
+            <ImageButton
+                android:id="@+id/btnWall"
+                android:layout_width="117dp"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/wildrift" />
-
+                android:layout_gravity="left"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="50dp"
+                android:backgroundTint="#00FFFFFF"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/wildrift"></ImageButton>
             <TextView
-                android:id="@+id/textWallpaper"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Wallpapers"
-                android:textSize="40dp"
+                android:text="Item"
+                android:layout_gravity="center"
+                android:textSize="33dp"
                 android:textColor="@color/text"
-                android:layout_gravity="center"/>
+                ></TextView>
 
         </LinearLayout>
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom">
 
-    </RelativeLayout>
+            <include layout="@layout/footer_activity"></include>
+        </RelativeLayout>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="bottom">
+        <!--        <LinearLayout-->
+<!--            android:id="@+id/champion"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="120dp"-->
+<!--            android:layout_below="@id/header"-->
+<!--            android:layout_marginTop="7dp"-->
+<!--            android:background="@color/panelAbu"-->
+<!--            android:clickable="true"-->
+<!--            android:orientation="horizontal">-->
 
-        <include layout="@layout/footer_activity"></include>
+<!--            <ImageView-->
+<!--                android:id="@+id/championImage"-->
+<!--                android:layout_width="150dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:srcCompat="@drawable/hero" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/textChamp"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:text="Champion"-->
+<!--                android:textColor="@color/text"-->
+<!--                android:textSize="40dp" />-->
+
+<!--        </LinearLayout>-->
+
+<!--        <LinearLayout-->
+<!--            android:id="@+id/item"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="120dp"-->
+<!--            android:layout_below="@id/champion"-->
+<!--            android:layout_marginTop="23dp"-->
+<!--            android:background="@color/panelAbu"-->
+<!--            android:clickable="true"-->
+<!--            android:orientation="horizontal">-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/itemImage"-->
+<!--                android:layout_width="150dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginRight="50dp"-->
+<!--                app:srcCompat="@drawable/item" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/textItem"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:text="Item"-->
+<!--                android:textColor="@color/text"-->
+<!--                android:textSize="40dp"-->
+<!--                tools:visibility="visible" />-->
+
+<!--        </LinearLayout>-->
+
+<!--        <LinearLayout-->
+<!--            android:id="@+id/sound"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="120dp"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:background="@color/panelAbu"-->
+<!--            android:layout_below="@id/item"-->
+<!--            android:layout_marginTop="15dp"-->
+<!--            android:clickable="true">-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/soundImage"-->
+<!--                android:layout_width="70dp"-->
+<!--                android:layout_marginLeft="40dp"-->
+<!--                android:layout_marginRight="80dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:srcCompat="@drawable/sound" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/textSound"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Voice"-->
+<!--                android:textSize="40dp"-->
+<!--                android:textColor="@color/text"-->
+<!--                android:layout_gravity="center"/>-->
+
+<!--        </LinearLayout>-->
+
+<!--        <LinearLayout-->
+<!--            android:id="@+id/wallpaper"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="120dp"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:background="@color/panelAbu"-->
+<!--            android:layout_below="@id/sound"-->
+<!--            android:layout_marginTop="15dp"-->
+<!--            android:clickable="true">-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/wallpaperImage"-->
+<!--                android:layout_width="100dp"-->
+<!--                android:layout_marginLeft="30dp"-->
+<!--                android:layout_marginRight="30dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:srcCompat="@drawable/wildrift" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/textWallpaper"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Wallpapers"-->
+<!--                android:textSize="40dp"-->
+<!--                android:textColor="@color/text"-->
+<!--                android:layout_gravity="center"/>-->
+
+<!--        </LinearLayout>-->
+
+
     </RelativeLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
+</layout>
