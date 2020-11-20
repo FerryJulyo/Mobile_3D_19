@@ -1,53 +1,53 @@
 package ferry.julyo.wildriftmastery;
 
 public class DataBinding {
-    private String studentName;
-    private String studentNim;
-    private String studentMatkul;
-    private String studentAkun;
+    private String Name;
+    private String Nim;
+    private String Matkul;
+    private String Akun;
 
-    public DataBinding(String studentName, String studentMatkul, String studentAkun, String studentNim){
-        this.studentName = studentName;
-        this.studentNim = studentNim;
-        this.studentMatkul = studentMatkul;
-        this.studentAkun = studentAkun;
+    public DataBinding(String Name,String Matkul, String Akun, String Nim){
+        this.Name = Name;
+        this.Nim = Nim;
+        this.Matkul = Matkul;
+        this.Akun = Akun;
     }
 
     public DataBinding(){
 
     }
 
-    public String getStudentName() {
+    public String getName() {
 
-        return studentName;
+        return Name;
     }
 
-    public void setStudentName(String studentName) {
-        this.studentName = studentName;
+    public void setName(String Name) {
+        this.Name = Name;
     }
 
-    public String getStudentNim() {
-        return studentNim;
+    public String getNim() {
+        return Nim;
     }
 
-    public void setStudentNim(String studentNim) {
-        this.studentNim = studentNim;
+    public void setNim(String Nim) {
+        this.Nim = Nim;
     }
 
-    public String getStudentAkun() {
+    public String getAkun() {
 
-        return studentAkun;
+        return Akun;
     }
 
-    public void setStudentAkun(String studentAkun){
-        this.studentAkun = studentAkun;
+    public void setAkun(String Akun){
+        this.Akun = Akun;
     }
 
-    public String getStudentMatkul(){
-        return studentMatkul;
+    public String getMatkul(){
+        return Matkul;
     }
 
-    public void setStudentMatkul(String studentMatkul){
-        this.studentMatkul = studentMatkul;
+    public void setMatkul(String Matkul){
+        this.Matkul = Matkul;
     }
 }

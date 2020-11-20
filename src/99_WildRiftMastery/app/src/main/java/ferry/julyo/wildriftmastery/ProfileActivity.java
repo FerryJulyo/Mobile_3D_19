@@ -27,9 +27,9 @@ public class ProfileActivity extends AppCompatActivity {
 
     private DataBinding getCurrentDataBinding(){
         DataBinding db = new DataBinding();
-        db.setStudentName("Mohammad Ferry Julyo");
-        db.setStudentNim("1941723008");
-        db.setStudentMatkul("Pemograman Mobile");
+        db.setName("Mohammad Ferry Julyo");
+        db.setNim("1941723008");
+        db.setMatkul("Pemograman Mobile");
         return db;
     }
 
