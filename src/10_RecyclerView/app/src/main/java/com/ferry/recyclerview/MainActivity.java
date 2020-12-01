@@ -1,62 +1,105 @@
 package com.ferry.recyclerview;
 
 import android.os.Bundle;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
-import android.view.View;
-
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    private final LinkedList<String> mWordList = new LinkedList<>();
+    private String title = "Mode List";
+    private RecyclerView rvHeroes;
+    private ArrayList<Hero> list = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        setActionBarTitle(title);
 
-        for (int i = 0; i < 20; i++) {
-            mWordList.addLast("Word " + i);
-        }
+        rvHeroes = findViewById(R.id.rv_heroes);
+        rvHeroes.setHasFixedSize(true);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        list.addAll(HeroesData.getListData());
+        showRecyclerList();
+    }
+
+    private void showRecyclerList() {
+        rvHeroes.setLayoutManager(new LinearLayoutManager(this));
+        ListHeroAdapter listHeroAdapter = new ListHeroAdapter(list);
+        rvHeroes.setAdapter(listHeroAdapter);
+
+        listHeroAdapter.setOnItemClickCallback(new ListHeroAdapter.OnItemClickCallback() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onItemClicked(Hero data) {
+                showSelectedHero(data);
             }
         });
     }
 
+    private void showRecyclerGrid() {
+        rvHeroes.setLayoutManager(new GridLayoutManager(this, 2));
+        GridHeroAdapter gridHeroAdapter = new GridHeroAdapter(list);
+        rvHeroes.setAdapter(gridHeroAdapter);
+
+        gridHeroAdapter.setOnItemClickCallback(new GridHeroAdapter.OnItemClickCallback() {
+            @Override
+            public void onItemClicked(Hero data) {
+                showSelectedHero(data);
+            }
+        });
+    }
+
+    private void showRecyclerCardView() {
+        rvHeroes.setLayoutManager(new LinearLayoutManager(this));
+        CardViewHeroAdapter cardViewHeroAdapter = new CardViewHeroAdapter(list);
+        rvHeroes.setAdapter(cardViewHeroAdapter);
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
+        setMode(item.getItemId());
         return super.onOptionsItemSelected(item);
+    }
+
+    public void setMode(int selectedMode) {
+        switch (selectedMode) {
+            case R.id.action_list:
+                title = "Mode List";
+                showRecyclerList();
+                break;
+
+            case R.id.action_grid:
+                title = "Mode Grid";
+                showRecyclerGrid();
+                break;
+
+            case R.id.action_cardview:
+                title = "Mode CardView";
+                showRecyclerCardView();
+                break;
+        }
+        setActionBarTitle(title);
+    }
+
+    private void setActionBarTitle(String title) {
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle(title);
+        }
+    }
+
+    private void showSelectedHero(Hero hero) {
+        Toast.makeText(this, "Kamu memilih " + hero.getName(), Toast.LENGTH_SHORT).show();
     }
 }
