@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HeroActivity">
+
+    <LinearLayout
+        android:id="@+id/article_heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#1C3D59"
+        android:onClick="onClickBack"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/arrow"/>
+        <TextView
+            android:id="@+id/namaher"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance=
+                "@android:style/TextAppearance.DeviceDefault.Large"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:gravity="center"/>
+    </LinearLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/article_heading">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="5dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:id="@+id/gbr_hero"/>
+            <TextView
+                android:id="@+id/nama_hero"
+                android:layout_marginTop="13dp"
+                android:layout_marginLeft="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="30dp"
+                android:textAppearance=
+                    "@android:style/TextAppearance.DeviceDefault" />
+            <TextView
+                android:id="@+id/desc"
+                android:layout_width="match_parent"
+                android:layout_marginTop="20dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginBottom="10dp"
+                android:text=""
+                android:textSize="18dp"
+                android:textAppearance=
+                    "@android:style/TextAppearance.DeviceDefault" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+</RelativeLayout>

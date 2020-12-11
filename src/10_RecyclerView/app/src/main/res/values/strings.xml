@@ -1,8 +1,4 @@
 <resources>
-    <string name="app_name">Recycler View</string>
-    <string name="heroes_name">Nama Pahlawan</string>
-    <string name="detail">Detail</string>
-    <string name="list">List</string>
-    <string name="grid">Grid</string>
-    <string name="with_cardview">with CardView</string>
+    <string name="app_name">RecyclerView</string>
+    <string name="action_settings">Settings</string>
 </resources>
