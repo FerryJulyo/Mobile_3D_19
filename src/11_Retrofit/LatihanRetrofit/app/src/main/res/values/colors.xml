@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
+    <color name="background">#828282</color>
+    <color name="panelAbu">#717171</color>
+    <color name="panelGelap">#373737</color>
+    <color name="text">#E7E7E7</color>
 </resources>
