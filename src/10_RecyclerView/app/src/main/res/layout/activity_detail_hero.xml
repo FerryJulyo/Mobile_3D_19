@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HeroActivity">
+    tools:context=".HeroActivity"
+    android:background="@color/background">
 
     <LinearLayout
         android:id="@+id/article_heading"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#1C3D59"
+        android:background="@color/panelGelap"
         android:onClick="onClickBack"
         android:orientation="horizontal">
 
@@ -25,7 +26,7 @@
             android:layout_height="wrap_content"
             android:textAppearance=
                 "@android:style/TextAppearance.DeviceDefault.Large"
-            android:textColor="@android:color/white"
+            android:textColor="@color/text"
             android:textStyle="bold"
             android:gravity="center"/>
     </LinearLayout>
@@ -52,6 +53,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/text"
                 android:text=""
                 android:textSize="30dp"
                 android:textAppearance=
@@ -63,6 +65,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginBottom="10dp"
+                android:textColor="@color/text"
                 android:text=""
                 android:textSize="18dp"
                 android:textAppearance=
