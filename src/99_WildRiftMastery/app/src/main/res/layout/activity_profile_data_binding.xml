@@ -96,7 +96,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="@{databinding.studentName}"
+                    android:text="@{databinding.Name}"
                     android:textColor="#000"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -125,7 +125,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="@{databinding.studentNim}"
+                    android:text="@{databinding.Nim}"
                     android:textColor="#000"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -154,7 +154,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="@{databinding.studentMatkul}"
+                    android:text="@{databinding.Matkul}"
                     android:textColor="#000"
                     android:textSize="20sp"
                     android:textStyle="bold" />

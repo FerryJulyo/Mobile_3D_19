@@ -20,6 +20,8 @@
             />
         <activity android:name=".ProfileActivity"
             />
+        <activity android:name=".ChampionActivity"
+            />
     </application>
 
 </manifest>

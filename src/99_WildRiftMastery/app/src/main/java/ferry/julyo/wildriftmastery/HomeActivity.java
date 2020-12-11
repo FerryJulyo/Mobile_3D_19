@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class HomeActivity extends AppCompatActivity {
-    private ImageButton aboutUs;
+    private ImageButton aboutUs, champion;
 
     Intent pindah;
 
@@ -20,11 +20,21 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.home_activity);
 
         aboutUs =(ImageButton) findViewById(R.id.aboutUs);
+        champion = (ImageButton) findViewById(R.id.btnCham);
 
         aboutUs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 pindah = new Intent(HomeActivity.this, ProfileActivity.class);
+                startActivity(pindah);
+                finish();
+            }
+        });
+
+        champion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pindah = new Intent(HomeActivity.this, ChampionActivity.class);
                 startActivity(pindah);
                 finish();
             }
