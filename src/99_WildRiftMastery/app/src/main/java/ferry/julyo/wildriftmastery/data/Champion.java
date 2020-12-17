@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import ferry.julyo.wildriftmastery.api.ApiClient;
 import ferry.julyo.wildriftmastery.api.responses.ChampionResponse;
 import ferry.julyo.wildriftmastery.api.responses.PassiveResponse;
+import ferry.julyo.wildriftmastery.api.responses.SkinResponse;
 import ferry.julyo.wildriftmastery.api.responses.SpellResponse;
 
 import java.io.Serializable;
@@ -18,19 +19,17 @@ public class Champion implements Serializable {
     private String title;
     private String lore;
     private String imagePath;
-    private Info info;
     private List<Skin> skins;
     private List<Ability> abilities;
     private List<String> tags;
     private List<String> allyTips;
     private List<String> enemyTips;
 
-    public Champion(String name, String title, String lore, String image, Info info, List<Ability> abilities, List<Skin> skins, List<String> tags, List<String> allyTips, List<String> enemyTips) {
+    public Champion(String name, String title, String lore, String image, List<Ability> abilities, List<Skin> skins, List<String> tags, List<String> allyTips, List<String> enemyTips) {
         this.name = name;
         this.title = title;
         this.lore = lore;
         this.imagePath = image;
-        this.info = info;
         this.abilities = abilities;
         this.skins = skins;
         this.tags = tags;
@@ -52,10 +51,6 @@ public class Champion implements Serializable {
 
     public String getLore() {
         return lore;
-    }
-
-    public Info getInfo() {
-        return info;
     }
 
     public List<Ability> getAbilities() {
@@ -112,13 +107,11 @@ public class Champion implements Serializable {
     public static final class Spell extends Ability {
         private String cost;
         private String cooldown;
-        private String tooltip;
 
         Spell(String name, String cost, String cooldown, String description, String tooltip, String image) {
             super(name, description, image);
             this.cost = cost;
             this.cooldown = cooldown;
-            this.tooltip = tooltip;
         }
 
         public String getCost() {
@@ -129,21 +122,16 @@ public class Champion implements Serializable {
             return cooldown;
         }
 
-        public String getTooltip() {
-            return tooltip;
-        }
     }
 
     public static final class Skin implements Serializable {
         private String id;
         private String name;
-        private String num;
         private String imagePath;
 
         Skin(String id, String name, String num, String imagePath) {
             this.id = id;
             this.name = name;
-            this.num = num;
             this.imagePath = imagePath;
         }
 
@@ -155,48 +143,9 @@ public class Champion implements Serializable {
             return name;
         }
 
-        public String getNum() {
-            return num;
-        }
 
         public String getImagePath() {
             return this.imagePath;
-        }
-    }
-
-    public static final class Info implements Serializable {
-        private int mobility;
-        private int attack;
-        private int defense;
-        private int magic;
-        private int difficulty;
-
-        Info(int attack, int defense, int magic, int difficulty, int mobility) {
-            this.attack = attack;
-            this.defense = defense;
-            this.magic = magic;
-            this.difficulty = difficulty;
-            this.mobility = mobility;
-        }
-
-        public int getAttack() {
-            return attack;
-        }
-
-        public int getDefense() {
-            return defense;
-        }
-
-        public int getMagic() {
-            return magic;
-        }
-
-        public int getDifficulty() {
-            return difficulty;
-        }
-
-        public int getMobility() {
-            return mobility;
         }
     }
 
@@ -219,7 +168,6 @@ public class Champion implements Serializable {
         private static final float MAX_SPEED = 400.0f;
         private ChampionResponse championResponse;
         private String baseUrlImage;
-        private Info info;
         private List<Skin> skins = new ArrayList<>();
         private List<Ability> abilities = new ArrayList<>();
 
@@ -263,11 +211,19 @@ public class Champion implements Serializable {
                 }
             }
 
+            if (this.championResponse.getSkins() != null) {
+                String path = "img/champion/loading/";
+                for (SkinResponse sr : this.championResponse.getSkins()) {
+
+                    this.skins.add(new Champion.Skin(sr.getId(), sr.getName(), sr.getNum(),
+                            this.baseUrlImage + path + this.championResponse.getId() + "_" + sr.getNum() + ".jpg"));
+                }
+            }
+
             return new Champion(this.championResponse.getName(),
                     this.championResponse.getTitle(),
                     this.championResponse.getLore(),
                     String.format("%s%s", this.baseUrlImage, this.championResponse.getImage().getFull()),
-                    this.info,
                     this.abilities,
                     this.skins,
                     this.championResponse.getTags(),
