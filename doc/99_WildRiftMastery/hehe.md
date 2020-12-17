@@ -5,24 +5,32 @@
 
 
 
-### Splash Screen
+### Deskripsi Proyek
 
-1. .<br>
+1. .Splash Screen<br>
    
    ![contoh screenshot](1.png)<br>
 
 
 <br><br>
 
-1. 
+2. Home Menu<br>
 
-<br><br>![contoh screenshot](2.png)<br>
+    ![contoh screenshot](2.png)<br>
 
-<br><br>![contoh screenshot](4.png)<br>
+3. Hero List<br>
 
-<br><br>![contoh screenshot](5.png)<br>
-<br><br>![contoh screenshot](6.png)<br>
-<br><br>![contoh screenshot](7.png)<br>
+    ![contoh screenshot](5.png)<br>
+
+4. Search Bar<br>
+
+    ![contoh screenshot](6.png)<br>
+
+5. Detail Hero<br>
+
+    ![contoh screenshot](7.png)<br>
+
+    ![contoh screenshot](8.png)<br>
 
 
 				
