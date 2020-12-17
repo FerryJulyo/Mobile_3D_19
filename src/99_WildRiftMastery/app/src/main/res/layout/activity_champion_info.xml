@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="7dp"
+    tools:context=".ChampionInfoActivity">
+
+    <Toolbar
+        android:id="@+id/activity_champion_info_toolbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="NewApi">
+
+        <TextView
+            android:id="@+id/activity_champion_info_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold" />
+    </Toolbar>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/activity_champion_info_tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabGravity="fill"
+        app:tabMode="fixed" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/activity_champion_info_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

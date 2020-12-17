@@ -1,8 +1,31 @@
 <resources>
     <string name="app_name">Wild Rift Mastery</string>
-    <string name="heroes_name">Nama Pahlawan</string>
-    <string name="detail">Detail</string>
-    <string name="list">List</string>
-    <string name="grid">Grid</string>
-    <string name="with_cardview">with CardView</string>
+    <string name="about_us">About Us</string>
+    <string name="info">Info</string>
+    <string name="hint_search">Type champion\'s name to filter</string>
+    <string name="back">Back</string>
+    <string name="overview">Overview</string>
+    <string name="skills">Abilities</string>
+    <string name="stats">Attributes</string>
+    <string name="compare">Compare</string>
+    <string name="mana_cost">Cost: %s</string>
+    <string name="cooldown">Cooldown: %s</string>
+    <string name="wait">Wait</string>
+    <string name="loading">Loading…</string>
+    <string name="toast_total_loaded_champions">Total loaded champions: %d</string>
+    <string name="attack">Attack</string>
+    <string name="defense">Defense</string>
+    <string name="magic">Magic</string>
+    <string name="difficulty">Difficulty</string>
+    <string name="mobility">Mobility</string>
+    <string name="hint_select_champion_to_compare">Select a champion to compare</string>
+    <string name="toast_error_loading">An error has occurred on loading</string>
+    <string name="enemy_tips">Enemy tips</string>
+    <string name="ally_tips">Ally tips</string>
+    <string name="role">Role</string>
+    <string name="champion">Champion</string>
+    <string name="nama">Nama : Mohammad Ferry Julyo</string>
+    <string name="nim">NIM : 1941723008</string>
+    <string name="matkul">Matkul : Pemrograman Mobile</string>
+
 </resources>

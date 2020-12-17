@@ -1,17 +1,14 @@
 package ferry.julyo.wildriftmastery;
 
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class HomeActivity extends AppCompatActivity {
-    private ImageButton aboutUs, champion;
+    private ImageButton aboutUs, champion, info;
 
     Intent pindah;
 
@@ -19,8 +16,10 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_activity);
 
-        aboutUs =(ImageButton) findViewById(R.id.aboutUs);
         champion = (ImageButton) findViewById(R.id.btnCham);
+        aboutUs =(ImageButton) findViewById(R.id.btnAboutUs);
+        info = (ImageButton) findViewById(R.id.btnInfo);
+
 
         aboutUs.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,6 +38,17 @@ public class HomeActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pindah = new Intent(HomeActivity.this, InfoActivity.class);
+                startActivity(pindah);
+                finish();
+            }
+        });
+
+
 
 }
 }

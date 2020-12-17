@@ -1,105 +1,130 @@
 package ferry.julyo.wildriftmastery;
 
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View;
+import android.widget.SearchView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-public class ChampionActivity extends AppCompatActivity {
-    private String title = "Mode List";
-    private RecyclerView rvHeroes;
-    private ArrayList<Hero> list = new ArrayList<>();
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+import ferry.julyo.wildriftmastery.adapter.ChampionAdapter;
+import ferry.julyo.wildriftmastery.api.ApiClient;
+import ferry.julyo.wildriftmastery.api.responses.ChampionResponse;
+import ferry.julyo.wildriftmastery.api.responses.ChampionsResponse;
+import ferry.julyo.wildriftmastery.data.Champion;
+import ferry.julyo.wildriftmastery.task.LoadAllChampionsTask;
+
+//import android.support.annotation.Nullable;
+//import android.support.annotation.StringRes;
+//import android.support.v7.app.AppCompatActivity;
+//import android.support.v7.widget.LinearLayoutManager;
+//import android.support.v7.widget.RecyclerView;
+
+public class ChampionActivity extends AppCompatActivity implements View.OnClickListener, ChampionAdapter.OnChampionClickListener, LoadAllChampionsTask.LoadAllChampionsTaskDelegate, SearchView.OnQueryTextListener {
+    private List<Champion> dataSource;
+    private ChampionAdapter championAdapter;
+    private ProgressDialog progressDialog;
+    private SearchView filterSearchView;
+    private LoadAllChampionsTask loadAllChampionsTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.champion_activity);
-        setActionBarTitle(title);
+        setContentView(R.layout.activity_champion);
 
-        rvHeroes = findViewById(R.id.rv_heroes);
-        rvHeroes.setHasFixedSize(true);
+        this.filterSearchView = findViewById(R.id.activity_main_filter_search_view);
+        RecyclerView championRecyclerView = this.findViewById(R.id.activity_main_champion_recycler_view);
 
-        list.addAll(HeroesData.getListData());
-        showRecyclerList();
-    }
+        this.dataSource = new ArrayList<>();
+        this.championAdapter = new ChampionAdapter(this.dataSource, this);
 
-    private void showRecyclerList() {
-        rvHeroes.setLayoutManager(new LinearLayoutManager(this));
-        ListHeroAdapter listHeroAdapter = new ListHeroAdapter(list);
-        rvHeroes.setAdapter(listHeroAdapter);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
 
-        listHeroAdapter.setOnItemClickCallback(new ListHeroAdapter.OnItemClickCallback() {
-            @Override
-            public void onItemClicked(Hero data) {
-                showSelectedHero(data);
-            }
-        });
-    }
+        championRecyclerView.setAdapter(this.championAdapter);
+        championRecyclerView.setLayoutManager(linearLayoutManager);
 
-    private void showRecyclerGrid() {
-        rvHeroes.setLayoutManager(new GridLayoutManager(this, 2));
-        GridHeroAdapter gridHeroAdapter = new GridHeroAdapter(list);
-        rvHeroes.setAdapter(gridHeroAdapter);
+        this.loadAllChampionsTask = new LoadAllChampionsTask(this);
+        this.loadAllChampionsTask.execute();
 
-        gridHeroAdapter.setOnItemClickCallback(new GridHeroAdapter.OnItemClickCallback() {
-            @Override
-            public void onItemClicked(Hero data) {
-                showSelectedHero(data);
-            }
-        });
-    }
-
-    private void showRecyclerCardView() {
-        rvHeroes.setLayoutManager(new LinearLayoutManager(this));
-        CardViewHeroAdapter cardViewHeroAdapter = new CardViewHeroAdapter(list);
-        rvHeroes.setAdapter(cardViewHeroAdapter);
+        this.filterSearchView.setOnQueryTextListener(this);
+        this.progressDialog = ProgressDialog.show(this, getString(R.string.wait), getResources().getString(R.string.loading));
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_champion, menu);
-        return super.onCreateOptionsMenu(menu);
+    public void onClick(View v) {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        setMode(item.getItemId());
-        return super.onOptionsItemSelected(item);
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
-    public void setMode(int selectedMode) {
-        switch (selectedMode) {
-            case R.id.action_list:
-                title = "Mode List";
-                showRecyclerList();
-                break;
+    @Override
+    public void onChampionClick(int position) {
+        Intent intent = new Intent(this, ChampionInfoActivity.class);
 
-            case R.id.action_grid:
-                title = "Mode Grid";
-                showRecyclerGrid();
-                break;
+        intent.putExtra(ChampionInfoActivity.PARAM_CHAMPION_ID, this.championAdapter.getDataSource().get(position).getName());
+        intent.putExtra(ChampionInfoActivity.PARAM_CHAMPIONS, (Serializable) this.dataSource);
+        startActivity(intent);
+    }
 
-            case R.id.action_cardview:
-                title = "Mode CardView";
-                showRecyclerCardView();
-                break;
+    @Override
+    public void onSuccess(ChampionsResponse response) {
+        this.progressDialog.dismiss();
+
+        Toast.makeText(this, getString(R.string.toast_total_loaded_champions, response.getData().size()), Toast.LENGTH_SHORT).show();
+
+        this.dataSource.clear();
+
+        for (ChampionResponse cr : response.getData().values()) {
+            Champion champion = new Champion.Builder()
+                    .withChampionResponse(cr)
+                    .withBaseImageUrl(ApiClient.BASE_URL_IMAGE)
+                    .build();
+
+            this.dataSource.add(champion);
         }
-        setActionBarTitle(title);
+
+        this.championAdapter.notifyDataSetChanged();
     }
 
-    private void setActionBarTitle(String title) {
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setTitle(title);
+    @Override
+    public void onFailure(@StringRes int resourceId) {
+        Toast.makeText(this, resourceId, Toast.LENGTH_SHORT).show();
+        this.progressDialog.dismiss();
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        List<Champion> filteredChampions = new ArrayList<>();
+
+        for (Champion champion : this.dataSource) {
+            if (champion.getName().toLowerCase().startsWith(query.toLowerCase())) {
+                filteredChampions.add(champion);
+            }
         }
+
+        this.championAdapter.updateDataSource(filteredChampions);
+
+        return true;
     }
 
-    private void showSelectedHero(Hero hero) {
-        Toast.makeText(this, "Kamu memilih " + hero.getName(), Toast.LENGTH_SHORT).show();
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        if (newText.isEmpty()) {
+            this.championAdapter.updateDataSource(this.dataSource);
+            return true;
+        }
+        return false;
     }
 }
