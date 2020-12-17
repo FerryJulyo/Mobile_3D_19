@@ -32,6 +32,15 @@
 
     ![contoh screenshot](8.png)<br>
 
+6. API Source : 
+    - https://riot-api-libraries.readthedocs.io/en/latest/ddragon.html
+    ![contoh screenshot](9.png)<br>
+
+
+7. API :    
+    - http://ddragon.leagueoflegends.com/cdn/9.3.1/data/en_US/champion.json
+    ![contoh screenshot](10.png)<br>
+
 
 				
 
