@@ -50,7 +50,7 @@ public class ApiClient {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return Arrays.asList("en_US", "pt_BR");
+        return Arrays.asList("en_US");
     }
 
     public static ApiClient getInstance() {
