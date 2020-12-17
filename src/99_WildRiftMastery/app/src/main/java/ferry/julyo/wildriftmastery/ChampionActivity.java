@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.SearchView;
 import android.widget.Toast;
 
@@ -24,23 +25,20 @@ import ferry.julyo.wildriftmastery.api.responses.ChampionsResponse;
 import ferry.julyo.wildriftmastery.data.Champion;
 import ferry.julyo.wildriftmastery.task.LoadAllChampionsTask;
 
-//import android.support.annotation.Nullable;
-//import android.support.annotation.StringRes;
-//import android.support.v7.app.AppCompatActivity;
-//import android.support.v7.widget.LinearLayoutManager;
-//import android.support.v7.widget.RecyclerView;
-
 public class ChampionActivity extends AppCompatActivity implements View.OnClickListener, ChampionAdapter.OnChampionClickListener, LoadAllChampionsTask.LoadAllChampionsTaskDelegate, SearchView.OnQueryTextListener {
     private List<Champion> dataSource;
     private ChampionAdapter championAdapter;
     private ProgressDialog progressDialog;
     private SearchView filterSearchView;
     private LoadAllChampionsTask loadAllChampionsTask;
+    private ImageButton back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_champion);
+
+        back = (ImageButton) findViewById(R.id.back);
 
         this.filterSearchView = findViewById(R.id.activity_main_filter_search_view);
         RecyclerView championRecyclerView = this.findViewById(R.id.activity_main_champion_recycler_view);
@@ -58,6 +56,15 @@ public class ChampionActivity extends AppCompatActivity implements View.OnClickL
 
         this.filterSearchView.setOnQueryTextListener(this);
         this.progressDialog = ProgressDialog.show(this, getString(R.string.wait), getResources().getString(R.string.loading));
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+              Intent  pindah = new Intent(ChampionActivity.this, HomeActivity.class);
+                startActivity(pindah);
+                finish();
+            }
+        });
     }
 
     @Override

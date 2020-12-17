@@ -14,12 +14,12 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
 
-        <activity android:name="ferry.julyo.wildriftmastery.ChampionInfoActivity"/>
-        <activity android:name="ferry.julyo.wildriftmastery.ChampionActivity"/>
-        <activity android:name="ferry.julyo.wildriftmastery.HomeActivity"/>
-        <activity android:name="ferry.julyo.wildriftmastery.InfoActivity"/>
-        <activity android:name="ferry.julyo.wildriftmastery.ProfileActivity"/>
-        <activity android:name="ferry.julyo.wildriftmastery.MainActivity">
+        <activity android:name=".InfoActivity"></activity>
+        <activity android:name=".ProfileActivity"></activity>
+        <activity android:name=".ChampionInfoActivity" />
+        <activity android:name=".ChampionActivity" />
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

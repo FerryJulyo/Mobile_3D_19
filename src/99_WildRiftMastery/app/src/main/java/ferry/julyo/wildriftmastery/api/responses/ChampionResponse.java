@@ -32,23 +32,14 @@ public class ChampionResponse {
     @JsonProperty("enemytips")
     private List<String> enemytips;
 
-    @JsonProperty("info")
-    private InfoResponse info;
-
     @JsonProperty("image")
     private ImageResponse image;
-
-    @JsonProperty("skins")
-    private List<SkinResponse> skins;
 
     @JsonProperty("tags")
     private List<String> tags;
 
     @JsonProperty("partype")
     private String partype;
-
-    @JsonProperty("stats")
-    private StatsResponse stats;
 
     @JsonProperty("spells")
     private List<SpellResponse> spells;
@@ -107,14 +98,6 @@ public class ChampionResponse {
         this.blurb = blurb;
     }
 
-    public InfoResponse getInfo() {
-        return info;
-    }
-
-    public void setInfo(InfoResponse info) {
-        this.info = info;
-    }
-
     public ImageResponse getImage() {
         return image;
     }
@@ -137,14 +120,6 @@ public class ChampionResponse {
 
     public void setPartype(String partype) {
         this.partype = partype;
-    }
-
-    public StatsResponse getStats() {
-        return stats;
-    }
-
-    public void setStats(StatsResponse stats) {
-        this.stats = stats;
     }
 
     public String getLore() {
@@ -187,11 +162,4 @@ public class ChampionResponse {
         this.passive = passive;
     }
 
-    public List<SkinResponse> getSkins() {
-        return skins;
-    }
-
-    public void setSkins(List<SkinResponse> skins) {
-        this.skins = skins;
-    }
 }

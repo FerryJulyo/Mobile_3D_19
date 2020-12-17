@@ -7,7 +7,6 @@ import androidx.annotation.NonNull;
 import ferry.julyo.wildriftmastery.api.ApiClient;
 import ferry.julyo.wildriftmastery.api.responses.ChampionResponse;
 import ferry.julyo.wildriftmastery.api.responses.PassiveResponse;
-import ferry.julyo.wildriftmastery.api.responses.SkinResponse;
 import ferry.julyo.wildriftmastery.api.responses.SpellResponse;
 
 import java.io.Serializable;
@@ -239,16 +238,6 @@ public class Champion implements Serializable {
 
         public Champion build() {
 
-            if (this.championResponse.getInfo() != null) {
-                this.info = new Info(this.championResponse.getInfo().getAttack(),
-                        this.championResponse.getInfo().getDefense(),
-                        this.championResponse.getInfo().getMagic(),
-                        this.championResponse.getInfo().getDifficulty(),
-                        Math.round(this.championResponse.getStats().getMovespeed() / MAX_SPEED * 10));
-            } else {
-                this.info = new Info(0, 0, 0, 0, 0);
-            }
-
             if (this.championResponse.getPassive() != null) {
                 String path = String.format("%s/img/passive/", ApiClient.VERSION);
                 PassiveResponse pr = this.championResponse.getPassive();
@@ -271,15 +260,6 @@ public class Champion implements Serializable {
                                     sr.getDescription(),
                                     sr.getTooltip(),
                                     this.baseUrlImage + path + sr.getImage().getFull()));
-                }
-            }
-
-            if (this.championResponse.getSkins() != null) {
-                String path = "img/champion/loading/";
-                for (SkinResponse sr : this.championResponse.getSkins()) {
-
-                    this.skins.add(new Champion.Skin(sr.getId(), sr.getName(), sr.getNum(),
-                            this.baseUrlImage + path + this.championResponse.getId() + "_" + sr.getNum() + ".jpg"));
                 }
             }
 
