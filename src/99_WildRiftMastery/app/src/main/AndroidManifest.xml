@@ -14,8 +14,8 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
 
-        <activity android:name=".InfoActivity"></activity>
-        <activity android:name=".ProfileActivity"></activity>
+        <activity android:name=".InfoActivity"/>
+        <activity android:name=".ProfileActivity"/>
         <activity android:name=".ChampionInfoActivity" />
         <activity android:name=".ChampionActivity" />
         <activity android:name=".HomeActivity" />
