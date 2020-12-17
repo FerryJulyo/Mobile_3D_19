@@ -38,7 +38,7 @@
 
 
 7. API :    
-    - http://ddragon.leagueoflegends.com/cdn/9.3.1/data/en_US/champion.json
+    - http://ddragon.leagueoflegends.com/cdn/10.25.1/data/en_US/champion.json
     ![contoh screenshot](10.png)<br>
 
 
