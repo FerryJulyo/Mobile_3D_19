@@ -1,15 +1,10 @@
 package ferry.julyo.wildriftmastery.api.responses;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class PassiveResponse {
-    @JsonProperty("name")
+
     private String name;
-
-    @JsonProperty("description")
     private String description;
-
-    @JsonProperty("image")
     private ImageResponse image;
 
     public PassiveResponse(){

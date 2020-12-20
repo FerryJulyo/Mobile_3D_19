@@ -1,30 +1,14 @@
 package ferry.julyo.wildriftmastery.api.responses;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class SpellResponse {
-    @JsonProperty("id")
+
     private String id;
-
-    @JsonProperty("name")
     private String name;
-
-    @JsonProperty("description")
     private String description;
-
-    @JsonProperty("tooltip")
     private String tooltip;
-
-    @JsonProperty("cooldownBurn")
     private String cooldownBurn;
-
-    @JsonProperty("costBurn")
     private String costBurn;
-
-    @JsonProperty("costType")
-    private String costType;
-
-    @JsonProperty("image")
     private ImageResponse image;
 
     public SpellResponse(){
@@ -76,14 +60,6 @@ public class SpellResponse {
 
     public void setCostBurn(String costBurn) {
         this.costBurn = costBurn;
-    }
-
-    public String getCostType() {
-        return costType;
-    }
-
-    public void setCostType(String costType) {
-        this.costType = costType;
     }
 
     public ImageResponse getImage() {

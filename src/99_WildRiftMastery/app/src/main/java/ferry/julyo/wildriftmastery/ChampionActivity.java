@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.SearchView;
 import android.widget.Toast;
+import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
@@ -24,11 +25,7 @@ import ferry.julyo.wildriftmastery.api.responses.ChampionsResponse;
 import ferry.julyo.wildriftmastery.data.Champion;
 import ferry.julyo.wildriftmastery.task.LoadAllChampionsTask;
 
-//import android.support.annotation.Nullable;
-//import android.support.annotation.StringRes;
-//import android.support.v7.app.AppCompatActivity;
-//import android.support.v7.widget.LinearLayoutManager;
-//import android.support.v7.widget.RecyclerView;
+
 
 public class ChampionActivity extends AppCompatActivity implements View.OnClickListener, ChampionAdapter.OnChampionClickListener, LoadAllChampionsTask.LoadAllChampionsTaskDelegate, SearchView.OnQueryTextListener {
     private List<Champion> dataSource;
@@ -62,6 +59,13 @@ public class ChampionActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onClick(View v) {
+    }
+
+
+    public void onClickBack(View view) {
+        Intent i = new Intent(this, HomeActivity.class);
+        startActivity(i);
+        finish();
     }
 
     @Override

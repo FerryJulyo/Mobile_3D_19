@@ -1,56 +1,20 @@
 package ferry.julyo.wildriftmastery.api.responses;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 
 public class ChampionResponse {
-    @JsonProperty("version")
+
     private String version;
-
-    @JsonProperty("id")
     private String id;
-
-    @JsonProperty("key")
-    private String key;
-
-    @JsonProperty("name")
     private String name;
-
-    @JsonProperty("title")
     private String title;
-
-    @JsonProperty("blurb")
-    private String blurb;
-
-    @JsonProperty("lore")
     private String lore;
-
-    @JsonProperty("allytips")
     private List<String> allytips;
-
-    @JsonProperty("enemytips")
     private List<String> enemytips;
-
-    @JsonProperty("image")
     private ImageResponse image;
-
-    @JsonProperty("skins")
-    private List<SkinResponse> skins;
-
-    @JsonProperty("tags")
     private List<String> tags;
-
-    @JsonProperty("partype")
-    private String partype;
-
-    @JsonProperty("stats")
-    private StatsResponse stats;
-
-    @JsonProperty("spells")
     private List<SpellResponse> spells;
-
-    @JsonProperty("passive")
     private PassiveResponse passive;
 
     public ChampionResponse() {
@@ -72,14 +36,6 @@ public class ChampionResponse {
         this.id = id;
     }
 
-    public String getKey() {
-        return key;
-    }
-
-    public void setKey(String key) {
-        this.key = key;
-    }
-
     public String getName() {
         return name;
     }
@@ -96,14 +52,6 @@ public class ChampionResponse {
         this.title = title;
     }
 
-    public String getBlurb() {
-        return blurb;
-    }
-
-    public void setBlurb(String blurb) {
-        this.blurb = blurb;
-    }
-
     public ImageResponse getImage() {
         return image;
     }
@@ -118,22 +66,6 @@ public class ChampionResponse {
 
     public void setTags(List<String> tags) {
         this.tags = tags;
-    }
-
-    public String getPartype() {
-        return partype;
-    }
-
-    public void setPartype(String partype) {
-        this.partype = partype;
-    }
-
-    public StatsResponse getStats() {
-        return stats;
-    }
-
-    public void setStats(StatsResponse stats) {
-        this.stats = stats;
     }
 
     public String getLore() {
@@ -176,11 +108,4 @@ public class ChampionResponse {
         this.passive = passive;
     }
 
-    public List<SkinResponse> getSkins() {
-        return skins;
-    }
-
-    public void setSkins(List<SkinResponse> skins) {
-        this.skins = skins;
-    }
 }

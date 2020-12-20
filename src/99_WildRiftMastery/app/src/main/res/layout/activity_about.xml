@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/panelAbu"
+    tools:context=".AboutActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:id="@+id/header"
+        android:paddingBottom="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/panelGelap">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="1dp"
+            android:onClick="onClickBack"
+            android:src="@drawable/arrow"/>
+
+        <Space
+            android:id="@+id/space"
+            android:onClick="onClickBack"
+            android:layout_width="5dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/back"/>
+
+        <TextView
+            android:id="@+id/kembali"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/space"
+            android:text="Kembali"
+            android:onClick="onClickBack"
+            android:textColor="@color/text"
+            android:textSize="16sp"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+        android:layout_marginTop="10dp"
+        android:id="@+id/foto"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Info"
+            android:textColor="@color/text"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:src="@drawable/logo"
+            tools:layout_editor_absoluteX="140dp"
+            tools:layout_editor_absoluteY="66dp" />
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/about"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:padding="20dp"
+        android:layout_below="@+id/foto"
+        android:textColor="@color/text"
+        android:text="Aplikasi yang saya buat adalah sebuah aplikasi yang berguna untuk mempermudah user/player mengetahui detail dari champion/hero di League of Legends : Wild Rift.\n
+                      \n User dapat mengetahui berbagai hal mulai dari hal dasar tentang hero tersebut seperti background dan julukan dari hero tersebut, juga hal-hal lain seperti Tips saat berhadapan dengan hero tersebut, atau tips saat hero tersebut menjadi kawan dalam game, juga terdapat deskripsi skill dari hero tersebut lengkap dengan ikon skill dan cooldown dari skill tersebut."
+        />
+
+
+
+</RelativeLayout>

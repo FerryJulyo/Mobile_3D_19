@@ -7,7 +7,6 @@ import androidx.annotation.NonNull;
 import ferry.julyo.wildriftmastery.api.ApiClient;
 import ferry.julyo.wildriftmastery.api.responses.ChampionResponse;
 import ferry.julyo.wildriftmastery.api.responses.PassiveResponse;
-import ferry.julyo.wildriftmastery.api.responses.SkinResponse;
 import ferry.julyo.wildriftmastery.api.responses.SpellResponse;
 
 import java.io.Serializable;
@@ -19,19 +18,17 @@ public class Champion implements Serializable {
     private String title;
     private String lore;
     private String imagePath;
-    private List<Skin> skins;
     private List<Ability> abilities;
     private List<String> tags;
     private List<String> allyTips;
     private List<String> enemyTips;
 
-    public Champion(String name, String title, String lore, String image, List<Ability> abilities, List<Skin> skins, List<String> tags, List<String> allyTips, List<String> enemyTips) {
+    public Champion(String name, String title, String lore, String image, List<Ability> abilities, List<String> tags, List<String> allyTips, List<String> enemyTips) {
         this.name = name;
         this.title = title;
         this.lore = lore;
         this.imagePath = image;
         this.abilities = abilities;
-        this.skins = skins;
         this.tags = tags;
         this.allyTips = allyTips;
         this.enemyTips = enemyTips;
@@ -55,10 +52,6 @@ public class Champion implements Serializable {
 
     public List<Ability> getAbilities() {
         return this.abilities;
-    }
-
-    public List<Skin> getSkins() {
-        return skins;
     }
 
     public List<String> getTags() {
@@ -108,7 +101,7 @@ public class Champion implements Serializable {
         private String cost;
         private String cooldown;
 
-        Spell(String name, String cost, String cooldown, String description, String tooltip, String image) {
+        Spell(String name, String cost, String cooldown, String description, String image) {
             super(name, description, image);
             this.cost = cost;
             this.cooldown = cooldown;
@@ -124,30 +117,6 @@ public class Champion implements Serializable {
 
     }
 
-    public static final class Skin implements Serializable {
-        private String id;
-        private String name;
-        private String imagePath;
-
-        Skin(String id, String name, String num, String imagePath) {
-            this.id = id;
-            this.name = name;
-            this.imagePath = imagePath;
-        }
-
-        public String getId() {
-            return id;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-
-        public String getImagePath() {
-            return this.imagePath;
-        }
-    }
 
     /**
      * @param obj the champion object to compare
@@ -168,7 +137,6 @@ public class Champion implements Serializable {
         private static final float MAX_SPEED = 400.0f;
         private ChampionResponse championResponse;
         private String baseUrlImage;
-        private List<Skin> skins = new ArrayList<>();
         private List<Ability> abilities = new ArrayList<>();
 
         public Builder() {
@@ -206,26 +174,16 @@ public class Champion implements Serializable {
                                     sr.getCostBurn(),
                                     sr.getCooldownBurn(),
                                     sr.getDescription(),
-                                    sr.getTooltip(),
                                     this.baseUrlImage + path + sr.getImage().getFull()));
                 }
             }
 
-            if (this.championResponse.getSkins() != null) {
-                String path = "img/champion/loading/";
-                for (SkinResponse sr : this.championResponse.getSkins()) {
-
-                    this.skins.add(new Champion.Skin(sr.getId(), sr.getName(), sr.getNum(),
-                            this.baseUrlImage + path + this.championResponse.getId() + "_" + sr.getNum() + ".jpg"));
-                }
-            }
 
             return new Champion(this.championResponse.getName(),
                     this.championResponse.getTitle(),
                     this.championResponse.getLore(),
                     String.format("%s%s", this.baseUrlImage, this.championResponse.getImage().getFull()),
                     this.abilities,
-                    this.skins,
                     this.championResponse.getTags(),
                     this.championResponse.getAllytips(),
                     this.championResponse.getEnemytips());

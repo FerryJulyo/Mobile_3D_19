@@ -16,9 +16,9 @@
 
         <activity android:name="ferry.julyo.wildriftmastery.ChampionInfoActivity"/>
         <activity android:name="ferry.julyo.wildriftmastery.ChampionActivity"/>
-        <activity android:name="ferry.julyo.wildriftmastery.HomeActivity"/>
+        <activity android:name="ferry.julyo.wildriftmastery.AboutActivity"/>
         <activity android:name="ferry.julyo.wildriftmastery.InfoActivity"/>
-        <activity android:name="ferry.julyo.wildriftmastery.ProfileActivity"/>
+        <activity android:name="ferry.julyo.wildriftmastery.HomeActivity"/>
         <activity android:name="ferry.julyo.wildriftmastery.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

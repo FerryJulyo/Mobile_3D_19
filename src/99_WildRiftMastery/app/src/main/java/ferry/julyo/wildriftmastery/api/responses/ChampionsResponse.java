@@ -1,14 +1,11 @@
 package ferry.julyo.wildriftmastery.api.responses;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Map;
 
 public class ChampionsResponse {
-    @JsonProperty("version")
-    private String version;
 
-    @JsonProperty("data")
+    private String version;
     private Map<String, ChampionResponse> data;
 
     public ChampionsResponse() {

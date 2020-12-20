@@ -40,6 +40,7 @@
             android:background="@color/panelAbu"
             android:orientation="horizontal"
             android:id="@+id/champion"
+            android:onClick="Champion"
             >
 
             <ImageButton
@@ -50,6 +51,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="50dp"
                 android:backgroundTint="#00FFFFFF"
+                android:onClick="Champion"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/hero"></ImageButton>
             <TextView
@@ -59,6 +61,7 @@
                 android:layout_gravity="center"
                 android:textSize="33dp"
                 android:textColor="@color/text"
+                android:onClick="Champion"
                 ></TextView>
 
         </LinearLayout>
@@ -71,7 +74,8 @@
             android:layout_marginTop="15dp"
             android:background="@color/panelAbu"
             android:orientation="horizontal"
-            android:id="@+id/item"
+            android:id="@+id/info"
+            android:onClick="Info"
             >
 
             <ImageButton
@@ -82,11 +86,13 @@
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="70dp"
                 android:backgroundTint="#00FFFFFF"
+                android:onClick="Info"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/info"></ImageButton>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="Info"
                 android:text="@string/info"
                 android:layout_gravity="center"
                 android:textSize="33dp"
@@ -98,11 +104,12 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="120dp"
-            android:layout_below="@id/item"
+            android:layout_below="@id/info"
             android:layout_marginTop="15dp"
             android:background="@color/panelAbu"
             android:orientation="horizontal"
-            android:id="@+id/voice"
+            android:id="@+id/aboutUs"
+            android:onClick="AboutUs"
             >
 
             <ImageButton
@@ -114,10 +121,12 @@
                 android:layout_marginRight="50dp"
                 android:backgroundTint="#00FFFFFF"
                 android:scaleType="centerInside"
+                android:onClick="AboutUs"
                 app:srcCompat="@drawable/about_us"></ImageButton>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="AboutUs"
                 android:text="@string/about_us"
                 android:layout_gravity="center"
                 android:textSize="33dp"
