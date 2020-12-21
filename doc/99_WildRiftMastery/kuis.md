@@ -1,7 +1,7 @@
 # Laporan Kuis # 2
 
 
-![Logo Polinema](polinema.png)<br>
+![Logo Polinema](img/polinema.png)<br>
 
 
 
@@ -9,7 +9,7 @@
 
 1. .<br>
    
-   ![contoh screenshot](1.png)<br>
+   ![contoh screenshot](img/1.png)<br>
 
 
 <br><br>
@@ -462,9 +462,9 @@ public class ProfileActivity extends AppCompatActivity {
 </layout>
 
 
-<br><br>![contoh screenshot](2.png)<br>
+<br><br>![contoh screenshot](img/2.png)<br>
 
-<br><br>![contoh screenshot](4.png)<br>
+<br><br>![contoh screenshot](img/4.png)<br>
 
 
 
@@ -473,7 +473,7 @@ public class ProfileActivity extends AppCompatActivity {
 
 1. .<br>
    
-   ![contoh screenshot](3.png)<br>
+   ![contoh screenshot](img/3.png)<br>
 
 
 
