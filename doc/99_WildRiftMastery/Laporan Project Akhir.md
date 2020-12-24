@@ -111,8 +111,6 @@ Kesimpulan yang saya dapatkan dari pembuatan aplikasi WildRift Mastery ialah :
 1. Riot Api  
 http://ddragon.leagueoflegends.com/cdn/10.25.1/data/en_US/champion.json<br>
 
-    https://riot-api-libraries.readthedocs.io/en/latest/ddragon.html#community-dragon<br>
-
 2. Referensi : <br>
     - Youtube : <br>
     https://www.youtube.com/channel/UC_Fh8kvtkVPkeihBs42jGcA<br>
