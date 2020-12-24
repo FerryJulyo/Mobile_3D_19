@@ -1,7 +1,6 @@
 package ferry.julyo.wildriftmastery.adapter;
 
-//import android.support.annotation.NonNull;
-//import android.support.v7.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -74,7 +73,6 @@ public class ChampionAdapter extends RecyclerView.Adapter<ChampionAdapter.Champi
             this.titleTextView.setText(champion.getTitle());
             this.thumbImageView.setImageDrawable(null);
             Picasso.with(this.thumbImageView.getContext()).load(champion.getImagePath()).into(this.thumbImageView);
-            //thumbImageView.setImageResource(ResourceHelper.findResourceIdByName(itemView, champion.getImagePath()));
         }
 
         @Override

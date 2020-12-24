@@ -12,10 +12,10 @@
         android:orientation="vertical">
 
         <!-- Champion Skins -->
-<!--        <com.appl.library.CoverFlowCarousel-->
-<!--            android:id="@+id/fragment_champion_overview_skins_cover_flow_carousel"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="250dp" />-->
+        <com.ferry.library.CoverFlowCarousel
+            android:id="@+id/fragment_champion_overview_skins_cover_flow_carousel"
+            android:layout_width="match_parent"
+            android:layout_height="250dp" />
 
         <!-- Champion Skin Name -->
         <TextView

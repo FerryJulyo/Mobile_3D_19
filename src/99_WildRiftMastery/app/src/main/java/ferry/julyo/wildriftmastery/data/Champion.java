@@ -1,12 +1,11 @@
 package ferry.julyo.wildriftmastery.data;
 
-
-
 import androidx.annotation.NonNull;
 
 import ferry.julyo.wildriftmastery.api.ApiClient;
 import ferry.julyo.wildriftmastery.api.responses.ChampionResponse;
 import ferry.julyo.wildriftmastery.api.responses.PassiveResponse;
+import ferry.julyo.wildriftmastery.api.responses.SkinResponse;
 import ferry.julyo.wildriftmastery.api.responses.SpellResponse;
 
 import java.io.Serializable;
@@ -18,17 +17,19 @@ public class Champion implements Serializable {
     private String title;
     private String lore;
     private String imagePath;
+    private List<Skin> skins;
     private List<Ability> abilities;
     private List<String> tags;
     private List<String> allyTips;
     private List<String> enemyTips;
 
-    public Champion(String name, String title, String lore, String image, List<Ability> abilities, List<String> tags, List<String> allyTips, List<String> enemyTips) {
+    public Champion(String name, String title, String lore, String image, List<Ability> abilities, List<Skin> skins, List<String> tags, List<String> allyTips, List<String> enemyTips) {
         this.name = name;
         this.title = title;
         this.lore = lore;
         this.imagePath = image;
         this.abilities = abilities;
+        this.skins = skins;
         this.tags = tags;
         this.allyTips = allyTips;
         this.enemyTips = enemyTips;
@@ -52,6 +53,10 @@ public class Champion implements Serializable {
 
     public List<Ability> getAbilities() {
         return this.abilities;
+    }
+
+    public List<Skin> getSkins() {
+        return skins;
     }
 
     public List<String> getTags() {
@@ -100,11 +105,13 @@ public class Champion implements Serializable {
     public static final class Spell extends Ability {
         private String cost;
         private String cooldown;
+        private String tooltip;
 
-        Spell(String name, String cost, String cooldown, String description, String image) {
+        Spell(String name, String cost, String cooldown, String description, String tooltip, String image) {
             super(name, description, image);
             this.cost = cost;
             this.cooldown = cooldown;
+            this.tooltip = tooltip;
         }
 
         public String getCost() {
@@ -115,8 +122,76 @@ public class Champion implements Serializable {
             return cooldown;
         }
 
+        public String getTooltip() {
+            return tooltip;
+        }
     }
 
+    public static final class Skin implements Serializable {
+        private String id;
+        private String name;
+        private String num;
+        private String imagePath;
+
+        Skin(String id, String name, String num, String imagePath) {
+            this.id = id;
+            this.name = name;
+            this.num = num;
+            this.imagePath = imagePath;
+        }
+
+        public String getId() {
+            return id;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public String getNum() {
+            return num;
+        }
+
+        public String getImagePath() {
+            return this.imagePath;
+        }
+    }
+
+    public static final class Info implements Serializable {
+        private int mobility;
+        private int attack;
+        private int defense;
+        private int magic;
+        private int difficulty;
+
+        Info(int attack, int defense, int magic, int difficulty, int mobility) {
+            this.attack = attack;
+            this.defense = defense;
+            this.magic = magic;
+            this.difficulty = difficulty;
+            this.mobility = mobility;
+        }
+
+        public int getAttack() {
+            return attack;
+        }
+
+        public int getDefense() {
+            return defense;
+        }
+
+        public int getMagic() {
+            return magic;
+        }
+
+        public int getDifficulty() {
+            return difficulty;
+        }
+
+        public int getMobility() {
+            return mobility;
+        }
+    }
 
     /**
      * @param obj the champion object to compare
@@ -137,6 +212,7 @@ public class Champion implements Serializable {
         private static final float MAX_SPEED = 400.0f;
         private ChampionResponse championResponse;
         private String baseUrlImage;
+        private List<Skin> skins = new ArrayList<>();
         private List<Ability> abilities = new ArrayList<>();
 
         public Builder() {
@@ -174,16 +250,26 @@ public class Champion implements Serializable {
                                     sr.getCostBurn(),
                                     sr.getCooldownBurn(),
                                     sr.getDescription(),
+                                    sr.getTooltip(),
                                     this.baseUrlImage + path + sr.getImage().getFull()));
                 }
             }
 
+            if (this.championResponse.getSkins() != null) {
+                String path = "img/champion/loading/";
+                for (SkinResponse sr : this.championResponse.getSkins()) {
+
+                    this.skins.add(new Champion.Skin(sr.getId(), sr.getName(), sr.getNum(),
+                            this.baseUrlImage + path + this.championResponse.getId() + "_" + sr.getNum() + ".jpg"));
+                }
+            }
 
             return new Champion(this.championResponse.getName(),
                     this.championResponse.getTitle(),
                     this.championResponse.getLore(),
                     String.format("%s%s", this.baseUrlImage, this.championResponse.getImage().getFull()),
                     this.abilities,
+                    this.skins,
                     this.championResponse.getTags(),
                     this.championResponse.getAllytips(),
                     this.championResponse.getEnemytips());

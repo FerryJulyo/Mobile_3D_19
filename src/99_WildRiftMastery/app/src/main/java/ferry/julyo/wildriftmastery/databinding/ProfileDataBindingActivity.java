@@ -27,7 +27,7 @@ public class ProfileDataBindingActivity extends AppCompatActivity {
         activityProfileDataBindingBinding.setDatabinding(getCurrentDataBinding());
     }
 
-    private ferry.julyo.wildriftmastery.databinding.DataBinding getCurrentDataBinding(){
+    private DataBinding getCurrentDataBinding(){
         DataBinding db = new DataBinding();
         db.setStudentName("Mohammad Ferry Julyo");
         db.setStudentNim("1941723008");
