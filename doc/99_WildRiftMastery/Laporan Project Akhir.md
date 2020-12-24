@@ -1,7 +1,7 @@
 # Laporan Project Akhir # 
 
 
-![Logo Polinema](polinema.png)<br>
+![Logo Polinema](img/polinema.png)<br>
 
 
 
